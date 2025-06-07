@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lógica de Programación: Dominando los Ciclos</title>
+    <link rel="stylesheet" href="code.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1><i class="fas fa-sync-alt"></i> Dominando los Ciclos en Programación</h1>
+            <h2>Instructor: Daniel Vera Paredes</h2>
+            <p>Una guía interactiva para pensar como un programador</p>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section class="card" id="concepto">
+            <h2><i class="fas fa-lightbulb"></i> ¿Qué es un Ciclo? El Superpoder de Repetir</h2>
+            <p>Imagina que tienes que realizar una tarea muchas veces, como aplaudir 100 veces. Sería agotador escribir "aplaudir" 100 veces. Un <strong>ciclo</strong> es la forma en que le decimos a la computadora: "Repite esta acción hasta que yo te diga que pares".</p>
+            <h3>Los 3 Ingredientes de Todo Ciclo</h3>
+            <div class="elements-grid">
+                <div class="element-card"><i class="fas fa-flag-checkered"></i><h4>Inicialización</h4><p>¿Dónde empezamos a contar? Es nuestra línea de partida. (Ej: `contador = 1`)</p></div>
+                <div class="element-card"><i class="fas fa-crosshairs"></i><h4>Condición</h4><p>La regla que decide si seguimos. Mientras sea cierta, el ciclo continúa. (Ej: `contador <= 100`)</p></div>
+                <div class="element-card"><i class="fas fa-shoe-prints"></i><h4>Actualización (Paso)</h4><p>El paso que damos en cada repetición para acercarnos al final. (Ej: `contador = contador + 1`)</p></div>
+            </div>
+             <p class="tip"><strong>PSeInt vs JavaScript:</strong> El ciclo `Para` en PSeInt es como el `for` de JavaScript, agrupa los 3 ingredientes. El `Mientras` de PSeInt es como el `while` de JavaScript, donde los ingredientes están más separados pero cumplen la misma función.</p>
+        </section>
+
+        <section class="card" id="estrategia">
+            <h2><i class="fas fa-chess-knight"></i> La Estrategia Maestra: Piensa Antes de Programar</h2>
+            <p>El error más grande es intentar escribir código sin un plan. Sigue estos 4 pasos siempre, y verás cómo los problemas se vuelven más sencillos.</p>
+            <ol class="strategy-list">
+                <li><span>1</span> <strong>Resuelve a Mano (Simulación):</strong> Olvida la computadora. Escribe el resultado que esperas como si lo hicieras en un cuaderno.</li>
+                <li><span>2</span> <strong>Encuentra el Patrón (Detective):</strong> Mira tu solución manual. ¿Qué acción se repite? ¿Qué valores cambian en cada paso? Esta es la parte más importante.</li>
+                <li><span>3</span> <strong>Asigna Variables (Etiquetas):</strong> Dale un nombre a cada "pieza" importante de tu patrón: el contador, el límite, la suma, etc.</li>
+                <li><span>4</span> <strong>Define las Reglas del Ciclo (El Plan):</strong> Usando tus variables, define claramente los 3 ingredientes: ¿dónde <b>Inicia</b>?, ¿cuál es la <b>Condición</b> para seguir?, ¿cómo se <b>Actualiza</b> en cada paso?</li>
+            </ol>
+        </section>
+
+        <section id="ejercicios">
+            <h2><i class="fas fa-dumbbell"></i> ¡A Entrenar! Ejercicios Interactivos</h2>
+            
+            <!-- EJERCICIO 1 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 1: Escribir un nombre N veces</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (si N=3, nombre="Ana"):</strong><br><code>Ana</code><br><code>Ana</code><br><code>Ana</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> La acción que se repite es "Escribir el nombre". Para saber cuándo parar, contamos cuántas veces lo hemos hecho.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>nombre</code>: El texto a mostrar (Ej: "Ana").<br>• <code>n</code>: El límite de repeticiones (Ej: 3).<br>• <code>c</code>: Un <strong>contador</strong> para llevar la cuenta de las repeticiones.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Inicio:</strong> El contador <code>c</code> empieza en 1.<br>• <strong>Condición:</strong> Repetir el proceso <strong>mientras</strong> <code>c</code> sea menor o igual que <code>n</code>.<br>• <strong>Actualización:</strong> Después de cada escritura, <code>c</code> debe aumentar en 1.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso EscribirNombre
+    Definir nombre Como Caracter, n, c Como Entero
+    nombre <- "Ana"; n <- 5
+    Para c <- 1 Hasta n Con Paso 1 Hacer
+        Escribir nombre
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function escribirNombreFor(nombre, n) {
+  for (let c = 1; c <= n; c++) { console.log(nombre); }
+}
+escribirNombreFor("Ana", 5);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-1">function escribirNombreWhile(nombre, n) {
+  let c = 1;
+  while (c <= n) {
+    console.log(nombre);
+    c++;
+  }
+}
+escribirNombreWhile("Juan", 3);</code></pre><button class="run-button" onclick="executeCode('code-while-1')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 2 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 2: Presentar los números del 1 a N</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (si N=5):</strong><br><code>1</code><br><code>2</code><br><code>3</code><br><code>4</code><br><code>5</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> La acción es "Escribir un número". El número que se escribe no es fijo, ¡es el mismo valor del contador en cada paso!</p>
+                        <p><strong>3. Variables:</strong><br>• <code>n</code>: El límite superior (Ej: 5).<br>• <code>c</code>: Nuestro <strong>contador</strong>, que también es el protagonista que se muestra.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Inicio:</strong> <code>c</code> empieza en 1.<br>• <strong>Condición:</strong> Repetir mientras <code>c</code> sea menor o igual que <code>n</code>.<br>• <strong>Actualización:</strong> <code>c</code> aumenta en 1 en cada repetición.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso PresentarNumeros
+    Definir n, c Como Entero; n <- 5
+    Para c <- 1 Hasta n Hacer; Escribir c; FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function presentarNumerosFor(n) {
+  for (let c = 1; c <= n; c++) { console.log(c); }
+}
+presentarNumerosFor(7);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-2">function presentarNumerosWhile(n) {
+  let c = 1;
+  while (c <= n) {
+    console.log(c);
+    c++;
+  }
+}
+presentarNumerosWhile(7);</code></pre><button class="run-button" onclick="executeCode('code-while-2')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 3 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 3: Presentar los Pares hasta N</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (si N=10):</strong><br><code>2, 4, 6, 8, 10</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> Recorremos todos los números del 1 al 10, pero antes de escribir uno, le aplicamos un <strong>filtro</strong>: ¿Es par? Solo si la respuesta es "sí", lo mostramos.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>n</code>: Límite.<br>• <code>c</code>: Contador que recorre TODOS los números.</p>
+                        <p><strong>4. Reglas del Ciclo y Filtro:</strong><br>• <strong>Ciclo:</strong> Contador <code>c</code> va de 1 hasta <code>n</code>.<br>• <strong>Dentro del Ciclo (Filtro):</strong> Necesitamos una condición <code>Si (c % 2 = 0)</code>. El operador `%` (módulo) da el residuo de una división. Si el residuo al dividir entre 2 es 0, es par. Solo entonces escribimos <code>c</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso PresentarPares
+    Definir n, c Como Entero; n <- 10
+    Para c <- 1 Hasta n Hacer
+        Si c MOD 2 = 0 Entonces; Escribir c; FinSi
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function presentarParesFor(n) {
+  for (let c = 1; c <= n; c++) {
+    if (c % 2 === 0) { console.log(c); }
+  }
+}
+presentarParesFor(10);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-3">function presentarParesWhile(n) {
+  let c = 1;
+  while (c <= n) {
+    if (c % 2 === 0) { console.log(c); }
+    c++;
+  }
+}
+presentarParesWhile(10);</code></pre><button class="run-button" onclick="executeCode('code-while-3')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 4 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 4: Múltiplos de un número cualquiera hasta N</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (múltiplos de 3 hasta N=15):</strong><br><code>3, 6, 9, 12, 15</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> Idéntico al de los pares, pero el "filtro" es más general. En lugar de verificar si es divisible por 2, verificamos si es divisible por nuestro número objetivo (`multiplo`).</p>
+                        <p><strong>3. Variables:</strong><br>• <code>n</code>: Límite superior.<br>• <code>multiplo</code>: El número del que queremos los múltiplos.<br>• <code>c</code>: Contador que recorre de 1 a N.</p>
+                        <p><strong>4. Reglas del Ciclo y Filtro:</strong><br>• <strong>Ciclo:</strong> Contador <code>c</code> va de 1 a <code>n</code>.<br>• <strong>Dentro del Ciclo (Filtro):</strong> Condición <code>Si (c % multiplo = 0)</code>, entonces mostramos <code>c</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso PresentarMultiplos
+    Definir n, multiplo, c Como Entero
+    n <- 30; multiplo <- 5
+    Para c <- 1 Hasta n Hacer
+        Si c MOD multiplo = 0 Entonces; Escribir c; FinSi
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function presentarMultiplosFor(n, multiplo) {
+  for (let c = 1; c <= n; c++) {
+    if (c % multiplo === 0) { console.log(c); }
+  }
+}
+presentarMultiplosFor(30, 5);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-4">function presentarMultiplosWhile(n, multiplo) {
+  let c = 1;
+  while (c <= n) {
+    if (c % multiplo === 0) { console.log(c); }
+    c++;
+  }
+}
+presentarMultiplosWhile(20, 3);</code></pre><button class="run-button" onclick="executeCode('code-while-4')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+                    
+            <!-- EJERCICIO 5 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 5: Tabla de sumar (1 al 12)</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (tabla del 2):</strong><br><code>1+2=3</code><br><code>2+2=4</code><br>...<br><code>12+2=14</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> La acción es "calcular y mostrar una suma". El número de la tabla (`numTabla`) es fijo en todas las repeticiones. Lo que cambia es el número que se le suma, que va de 1 a 12. ¡Ese es nuestro contador!</p>
+                        <p><strong>3. Variables:</strong><br>• <code>numTabla</code>: El número del que queremos la tabla.<br>• <code>c</code>: El contador que irá de 1 a 12.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Inicio:</strong> <code>c = 1</code>.<br>• <strong>Condición:</strong> Mientras <code>c <= 12</code>.<br>• <strong>Actualización:</strong> <code>c = c + 1</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso TablaSumar
+    Definir numTabla, c, res Como Entero; numTabla <- 5
+    Para c <- 1 Hasta 12 Hacer
+        res <- c + numTabla
+        Escribir c, " + ", numTabla, " = ", res
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function tablaSumarFor(numTabla) {
+  for (let c = 1; c <= 12; c++) {
+    console.log(`${c} + ${numTabla} = ${c + numTabla}`);
+  }
+}
+tablaSumarFor(5);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-5">function tablaSumarWhile(numTabla) {
+  let c = 1;
+  while (c <= 12) {
+    console.log(`${c} + ${numTabla} = ${c + numTabla}`);
+    c++;
+  }
+}
+tablaSumarWhile(8);</code></pre><button class="run-button" onclick="executeCode('code-while-5')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 6 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 6: Tabla de multiplicar (rango variable)</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                     <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (tabla 7, de 5 a 8):</strong><br><code>7x5=35</code><br><code>7x6=42</code><br><code>7x7=49</code><br><code>7x8=56</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> Idéntico al anterior (tabla de sumar), pero la operación es multiplicar. La principal diferencia es que el ciclo no empieza en 1 ni termina en 12, sino en valores variables.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>numTabla</code>.<br>• <code>inicio</code>: El valor donde empieza el contador.<br>• <code>fin</code>: El valor donde termina el contador.<br>• <code>c</code>: Contador.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Inicio:</strong> <code>c = inicio</code>.<br>• <strong>Condición:</strong> Mientras <code>c <= fin</code>.<br>• <strong>Actualización:</strong> <code>c = c + 1</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso TablaMultiplicar
+    Definir num, ini, fin, c, res Como Entero
+    num <- 7; ini <- 5; fin <- 10
+    Para c <- ini Hasta fin Hacer
+        res <- c * num
+        Escribir num, " x ", c, " = ", res
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function tablaMultiplicarFor(num, inicio, fin) {
+  for (let c = inicio; c <= fin; c++) {
+    console.log(`${num} x ${c} = ${num * c}`);
+  }
+}
+tablaMultiplicarFor(7, 5, 10);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-6">function tablaMultiplicarWhile(num, inicio, fin) {
+  let c = inicio;
+  while (c <= fin) {
+    console.log(`${num} x ${c} = ${num * c}`);
+    c++;
+  }
+}
+tablaMultiplicarWhile(3, 1, 5);</code></pre><button class="run-button" onclick="executeCode('code-while-6')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+            
+            <!-- EJERCICIO 7 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 7: Números entre dos números</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                     <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (entre 5 y 10):</strong><br><code>5, 6, 7, 8, 9, 10</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> Muy similar al ejercicio 2 (números hasta N), pero el inicio del ciclo no es 1, sino un valor variable.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num1</code>: Límite inferior.<br>• <code>num2</code>: Límite superior.<br>• <code>c</code>: Contador.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Inicio:</strong> <code>c = num1</code>.<br>• <strong>Condición:</strong> Mientras <code>c <= num2</code>.<br>• <strong>Actualización:</strong> <code>c = c + 1</code>.<br>• <span class="tip">TIC: Es una buena práctica asegurarse de que `num1` sea siempre menor que `num2`.</span></p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso NumerosComprendidos
+    Definir num1, num2, c Como Entero
+    num1 <- 5; num2 <- 10
+    Para c <- num1 Hasta num2 Hacer
+        Escribir c
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function numerosComprendidosFor(num1, num2) {
+  let inicio = Math.min(num1, num2);
+  let fin = Math.max(num1, num2);
+  for (let c = inicio; c <= fin; c++) { console.log(c); }
+}
+numerosComprendidosFor(10, 5);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-7">function numerosComprendidosWhile(num1, num2) {
+  let c = Math.min(num1, num2);
+  let fin = Math.max(num1, num2);
+  while (c <= fin) {
+    console.log(c);
+    c++;
+  }
+}
+numerosComprendidosWhile(2, 8);</code></pre><button class="run-button" onclick="executeCode('code-while-7')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 8 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 8: Pares entre dos números</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                     <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (entre 8 y 15):</strong><br><code>8, 10, 12, 14</code></p>
+                        <p><strong>2. Patrón Detectado:</strong> Es la combinación perfecta del ejercicio 7 (recorrer un rango variable) y el ejercicio 3 (aplicar un filtro para encontrar pares).</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num1, num2</code>: Límites del rango.<br>• <code>c</code>: Contador.</p>
+                        <p><strong>4. Reglas del Ciclo y Filtro:</strong><br>• <strong>Ciclo:</strong> <code>c</code> va de <code>num1</code> a <code>num2</code>.<br>• <strong>Dentro del Ciclo (Filtro):</strong> Si <code>c % 2 = 0</code>, entonces mostramos <code>c</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso ParesComprendidos
+    Definir num1, num2, c Como Entero
+    num1 <- 8; num2 <- 15
+    Para c <- num1 Hasta num2 Hacer
+        Si c MOD 2 = 0 Entonces; Escribir c; FinSi
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function paresComprendidosFor(num1, num2) {
+  let inicio = Math.min(num1, num2), fin = Math.max(num1, num2);
+  for (let c = inicio; c <= fin; c++) {
+    if (c % 2 === 0) { console.log(c); }
+  }
+}
+paresComprendidosFor(15, 8);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-8">function paresComprendidosWhile(num1, num2) {
+  let c = Math.min(num1, num2), fin = Math.max(num1, num2);
+  while (c <= fin) {
+    if (c % 2 === 0) { console.log(c); }
+    c++;
+  }
+}
+paresComprendidosWhile(1, 10);</code></pre><button class="run-button" onclick="executeCode('code-while-8')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+            
+            <!-- EJERCICIO 9 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 9: Suma de pares entre dos números</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (entre 1 y 6):</strong><br>• Reviso 1: no par.<br>• Reviso 2: par. Guardo 2 en "caja de suma". Suma=2.<br>• Reviso 3: no par.<br>• Reviso 4: par. Añado 4. Suma=2+4=6.<br>• Reviso 5: no par.<br>• Reviso 6: par. Añado 6. Suma=6+6=12.<br>• Fin. Resultado final: 12.</p>
+                        <p><strong>2. Patrón Detectado:</strong> Mismo ciclo y filtro que el ejercicio 8, pero la acción dentro del filtro cambia. En lugar de "escribir", la acción es "sumar a un total". A esta variable que guarda totales la llamamos <strong>acumulador</strong>.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num1, num2, c</code>.<br>• <code>suma</code>: Nuestro <strong>acumulador</strong>. ¡Debe empezar en 0!</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes del ciclo:</strong> Inicializar <code>suma = 0</code>.<br>• <strong>Ciclo:</strong> Contador <code>c</code> va desde <code>num1</code> hasta <code>num2</code>.<br>• <strong>Dentro del Ciclo:</strong> Si <code>c</code> es par, entonces actualizamos el acumulador: <code>suma = suma + c</code>.<br>• <strong>Después del ciclo:</strong> Mostrar el valor final de <code>suma</code>.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso SumaPares
+    Definir num1, num2, c, suma Como Entero
+    num1 <- 1; num2 <- 10; suma <- 0
+    Para c <- num1 Hasta num2 Hacer
+        Si c MOD 2 = 0 Entonces; suma <- suma + c; FinSi
+    FinPara
+    Escribir "La suma es: ", suma
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function sumaParesFor(num1, num2) {
+  let inicio = Math.min(num1, num2), fin = Math.max(num1, num2);
+  let suma = 0;
+  for (let c = inicio; c <= fin; c++) {
+    if (c % 2 === 0) { suma = suma + c; }
+  }
+  console.log(`La suma es: ${suma}`);
+}
+sumaParesFor(1, 10);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-9">function sumaParesWhile(num1, num2) {
+  let c = Math.min(num1, num2), fin = Math.max(num1, num2);
+  let suma = 0;
+  while (c <= fin) {
+    if (c % 2 === 0) { suma += c; } // += es atajo de suma = suma + c
+    c++;
+  }
+  console.log(`La suma es: ${suma}`);
+}
+sumaParesWhile(1, 10); // 2+4+6+8+10=30</code></pre><button class="run-button" onclick="executeCode('code-while-9')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 10 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 10: Divisores de cualquier número</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (para número 6):</strong><br>• Pruebo 1: ¿6/1 es exacto? Sí. Divisor: 1.<br>• Pruebo 2: ¿6/2 es exacto? Sí. Divisor: 2.<br>• Pruebo 3: ¿6/3 es exacto? Sí. Divisor: 3.<br>• Pruebo 4: ¿6/4 es exacto? No.<br>• Pruebo 5: ¿6/5 es exacto? No.<br>• Pruebo 6: ¿6/6 es exacto? Sí. Divisor: 6.</p>
+                        <p><strong>2. Patrón Detectado:</strong> Para encontrar los divisores de `num`, debemos probar a dividir `num` entre todos los números desde 1 hasta el propio `num`.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num</code>: El número a analizar.<br>• <code>i</code>: El contador que probará ser un divisor.</p>
+                        <p><strong>4. Reglas del Ciclo y Filtro:</strong><br>• <strong>Ciclo:</strong> Contador <code>i</code> va desde 1 hasta <code>num</code>.<br>• <strong>Dentro del Ciclo (Filtro):</strong> Si la división de <code>num</code> entre <code>i</code> es exacta (<code>num % i = 0</code>), entonces <code>i</code> es un divisor y lo mostramos.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso Divisores
+    Definir num, i Como Entero; num <- 20
+    Para i <- 1 Hasta num Hacer
+        Si num MOD i = 0 Entonces; Escribir i; FinSi
+    FinPara
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function divisoresFor(num) {
+  console.log(`Divisores de ${num}:`);
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) { console.log(i); }
+  }
+}
+divisoresFor(20);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-10">function divisoresWhile(num) {
+  console.log(`Divisores de ${num}:`);
+  let i = 1;
+  while (i <= num) {
+    if (num % i === 0) { console.log(i); }
+    i++;
+  }
+}
+divisoresWhile(18);</code></pre><button class="run-button" onclick="executeCode('code-while-10')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 11 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 11: Suma de los divisores</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>1. Simulación Manual (suma divisores de 6):</strong><br>• Encuentro divisor 1. Suma=1.<br>• Encuentro divisor 2. Suma=1+2=3.<br>• Encuentro divisor 3. Suma=3+3=6.<br>• Encuentro divisor 6. Suma=6+6=12.<br>• Fin. Resultado: 12.</p>
+                        <p><strong>2. Patrón Detectado:</strong> Es la fusión del ejercicio 10 (encontrar divisores) y el concepto de acumulador del ejercicio 9. Cada vez que encontramos un divisor, lo sumamos a un total.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num</code>, <code>i</code>.<br>• <code>suma</code>: El acumulador, que empieza en 0.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes:</strong> <code>suma = 0</code>.<br>• <strong>Ciclo:</strong> Contador <code>i</code> va de 1 a <code>num</code>.<br>• <strong>Dentro:</strong> Si <code>i</code> es divisor de <code>num</code>, entonces <code>suma = suma + i</code>.<br>• <strong>Después:</strong> Mostrar `suma`.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso SumaDivisores
+    Definir num, i, suma Como Entero;
+    num <- 6; suma <- 0
+    Para i <- 1 Hasta num Hacer
+        Si num MOD i = 0 Entonces; suma <- suma + i; FinSi
+    FinPara
+    Escribir "Suma: ", suma
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function sumaDivisoresFor(num) {
+  let suma = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) { suma += i; }
+  }
+  console.log(`Suma de divisores de ${num}: ${suma}`);
+}
+sumaDivisoresFor(6); // 1+2+3+6 = 12</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-11">function sumaDivisoresWhile(num) {
+  let suma = 0, i = 1;
+  while (i <= num) {
+    if (num % i === 0) { suma += i; }
+    i++;
+  }
+  console.log(`Suma de divisores de ${num}: ${suma}`);
+}
+sumaDivisoresWhile(10); // 1+2+5+10 = 18</code></pre><button class="run-button" onclick="executeCode('code-while-11')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+            
+            <!-- EJERCICIO 12 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 12: Verificar si un número es perfecto</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>Definición:</strong> Un número es perfecto si la suma de sus divisores PROPIOS (todos menos él mismo) es igual al número.</p>
+                        <p><strong>1. Simulación Manual (para 6):</strong> Divisores propios: 1, 2, 3. Suma = 1+2+3=6. ¿Es la suma (6) igual al número original (6)? Sí. Es perfecto.</p>
+                        <p><strong>2. Patrón Detectado:</strong> Es casi idéntico al ejercicio 11, pero con dos cambios: (1) el ciclo para buscar divisores debe parar uno antes (hasta `num - 1`), y (2) al final, debemos comparar la suma con el número original.</p>
+                        <p><strong>3. Variables:</strong> Las mismas que el ejercicio 11.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes:</strong> <code>suma = 0</code>.<br>• <strong>Ciclo:</strong> Contador <code>i</code> va de 1 hasta <strong><code>num - 1</code></strong>.<br>• <strong>Dentro:</strong> Si <code>i</code> es divisor, <code>suma = suma + i</code>.<br>• <strong>Después:</strong> Comparar: <code>Si (suma = num)</code>, es perfecto. Si no, no lo es.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso NumeroPerfecto
+    Definir num, i, suma Como Entero;
+    num <- 28; suma <- 0
+    Para i <- 1 Hasta num - 1 Hacer
+        Si num MOD i = 0 Entonces; suma <- suma + i; FinSi
+    FinPara
+    Si suma = num Entonces Escribir "Perfecto" Sino Escribir "No es perfecto"; FinSi
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function esPerfectoFor(num) {
+  let suma = 0;
+  for (let i = 1; i < num; i++) {
+    if (num % i === 0) { suma += i; }
+  }
+  if (suma === num && num !== 0) {
+    console.log(`${num} es perfecto.`);
+  } else {
+    console.log(`${num} NO es perfecto.`);
+  }
+}
+esPerfectoFor(28);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-12">function esPerfectoWhile(num) {
+  let suma = 0, i = 1;
+  while (i < num) {
+    if (num % i === 0) { suma += i; }
+    i++;
+  }
+  if (suma === num && num !== 0) {
+    console.log(`${num} es perfecto.`);
+  } else {
+    console.log(`${num} NO es perfecto.`);
+  }
+}
+esPerfectoWhile(6); esPerfectoWhile(12);</code></pre><button class="run-button" onclick="executeCode('code-while-12')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 13 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 13: Verificar si un número es primo</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>Definición:</strong> Un número primo solo tiene 2 divisores: 1 y él mismo.</p>
+                        <p><strong>1. Simulación Manual (para 7):</strong> Divisores: 1, 7. Total: 2. -> Es primo.<br><strong>Simulación (para 9):</strong> Divisores: 1, 3, 9. Total: 3. -> No es primo.</p>
+                        <p><strong>2. Patrón Detectado:</strong> La estrategia no es sumar, sino <strong>contar</strong> cuántos divisores tiene un número. Usaremos una variable para llevar esta cuenta.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>num, i</code>.<br>• <code>cantDivisores</code>: Un <strong>contador de eventos</strong>. Empieza en 0.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes:</strong> <code>cantDivisores = 0</code>.<br>• <strong>Ciclo:</strong> Contador <code>i</code> desde 1 hasta <code>num</code>.<br>• <strong>Dentro:</strong> Si <code>i</code> es divisor, incrementamos <code>cantDivisores++</code>.<br>• <strong>Después:</strong> Si <code>cantDivisores</code> es exactamente 2, el número es primo.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso NumeroPrimo
+    Definir num, i, cont Como Entero;
+    num <- 7; cont <- 0
+    Para i <- 1 Hasta num Hacer
+        Si num MOD i = 0 Entonces; cont <- cont + 1; FinSi
+    FinPara
+    Si cont = 2 Entonces Escribir "Primo" Sino Escribir "No es primo"; FinSi
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function esPrimoFor(num) {
+  if (num <= 1) { console.log("No es primo"); return; }
+  let cantDivisores = 0;
+  for (let i = 1; i <= num; i++) {
+    if (num % i === 0) { cantDivisores++; }
+  }
+  if (cantDivisores === 2) { console.log("Es primo"); } 
+  else { console.log("No es primo"); }
+}
+esPrimoFor(7);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-13">function esPrimoWhile(num) {
+  if (num <= 1) { console.log("No es primo"); return; }
+  let cantDivisores = 0, i = 1;
+  while (i <= num) {
+    if (num % i === 0) { cantDivisores++; }
+    i++;
+  }
+  if (cantDivisores === 2) { console.log("Es primo"); } 
+  else { console.log("No es primo"); }
+}
+esPrimoWhile(29); esPrimoWhile(30);</code></pre><button class="run-button" onclick="executeCode('code-while-13')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 14 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 14: Multiplicación por sumas sucesivas</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>Definición:</strong> Multiplicar 4x3 es sumar el 4, tres veces.</p>
+                        <p><strong>1. Simulación Manual (4x3):</strong><br>• Suma=0<br>• Repetición 1: Suma = 0 + 4 = 4.<br>• Repetición 2: Suma = 4 + 4 = 8.<br>• Repetición 3: Suma = 8 + 4 = 12.<br>• Fin. Resultado 12.</p>
+                        <p><strong>2. Patrón Detectado:</strong> Usamos un ciclo que se repite un número de veces igual al segundo factor. Dentro del ciclo, sumamos repetidamente el primer factor a un acumulador.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>a</code>: Primer factor.<br>• <code>b</code>: Segundo factor (controla las repeticiones).<br>• <code>resultado</code>: Acumulador. <br>• <code>c</code>: Contador del ciclo.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes:</strong> <code>resultado = 0</code>.<br>• <strong>Ciclo:</strong> Contador <code>c</code> de 1 hasta <code>b</code>.<br>• <strong>Dentro:</strong> <code>resultado = resultado + a</code>.<br>• <strong>Después:</strong> Mostrar `resultado`.</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso MultiplicarSumando
+    Definir a, b, c, res Como Entero
+    a <- 5; b <- 4; res <- 0
+    Para c <- 1 Hasta b Hacer; res <- res + a; FinPara
+    Escribir "Resultado: ", res
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">function multiplicarSumandoFor(a, b) {
+  let resultado = 0;
+  for (let i = 1; i <= b; i++) { resultado += a; }
+  console.log(`${a}x${b} = ${resultado}`);
+}
+multiplicarSumandoFor(5, 4);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-14">function multiplicarSumandoWhile(a, b) {
+  let resultado = 0, i = 1;
+  while (i <= b) {
+    resultado += a;
+    i++;
+  }
+  console.log(`${a}x${b} = ${resultado}`);
+}
+multiplicarSumandoWhile(6, 3);</code></pre><button class="run-button" onclick="executeCode('code-while-14')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+            <!-- EJERCICIO 15 -->
+            <div class="accordion">
+                <button class="accordion-header"><span>Ejercicio 15: División por restas sucesivas</span><i class="fas fa-chevron-down"></i></button>
+                <div class="accordion-content">
+                    <div class="analysis"><h4><i class="fas fa-brain"></i> Análisis con la Estrategia Maestra</h4>
+                        <p><strong>Definición:</strong> Dividir 10/3 es ver cuántas veces podemos restar 3 a 10.</p>
+                        <p><strong>1. Simulación Manual (10/3):</strong><br>• Dividendo=10. Restas=0.<br>• 10 >= 3? Sí. 10-3=7. Restas=1.<br>• 7 >= 3? Sí. 7-3=4. Restas=2.<br>• 4 >= 3? Sí. 4-3=1. Restas=3.<br>• 1 >= 3? No. Parar. <br>• Resultado: 3 (cociente) y sobra 1 (residuo).</p>
+                        <p><strong>2. Patrón Detectado:</strong> Mientras el dividendo sea mayor o igual que el divisor, restamos y contamos. El ciclo `while` es ideal aquí, porque no sabemos de antemano cuántas restas haremos.</p>
+                        <p><strong>3. Variables:</strong><br>• <code>dividendo, divisor</code>.<br>• <code>cociente</code>: Contador de restas. Empieza en 0.</p>
+                        <p><strong>4. Reglas del Ciclo:</strong><br>• <strong>Antes:</strong> <code>cociente = 0</code>.<br>• <strong>Ciclo (Condición):</strong> Mientras <code>dividendo >= divisor</code>.<br>• <strong>Dentro:</strong> <code>dividendo = dividendo - divisor</code> y <code>cociente++</code>.<br>• <strong>Después:</strong> Mostrar `cociente` y el `dividendo` sobrante (residuo).</p>
+                    </div><h4><i class="fas fa-code"></i> Código de Ejemplo</h4><div class="code-container">
+                        <div class="code-tabs"><button class="tab-button active" onclick="showTab(this)">PSeInt</button><button class="tab-button" onclick="showTab(this)">JS (for)</button><button class="tab-button" onclick="showTab(this)">JS (while)</button></div>
+                        <div class="code-panel active"><pre><code>Proceso DividirRestando
+    Definir dividendo, divisor, cociente Como Entero
+    dividendo <- 10; divisor <- 3; cociente <- 0
+    Mientras dividendo >= divisor Hacer
+        dividendo <- dividendo - divisor
+        cociente <- cociente + 1
+    FinMientras
+    Escribir "Cociente: ", cociente, " Residuo: ", dividendo
+FinProceso</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true">// Forzar un ciclo 'for' es muy poco natural para este problema.
+// 'while' es la herramienta correcta.
+function dividirRestandoFor(dividendo, divisor) {
+  let cociente = 0;
+  for ( ; dividendo >= divisor; cociente++) {
+    dividendo -= divisor;
+  }
+  console.log(`Cociente: ${cociente}, Residuo: ${dividendo}`);
+}
+dividirRestandoFor(10, 3);</code></pre></div>
+                        <div class="code-panel"><pre><code contenteditable="true" id="code-while-15">function dividirRestandoWhile(dividendo, divisor) {
+  if (divisor === 0) { console.log("Error: división por cero."); return; }
+  let cociente = 0;
+  while (dividendo >= divisor) {
+    dividendo -= divisor;
+    cociente++;
+  }
+  console.log(`Cociente: ${cociente}, Residuo: ${dividendo}`);
+}
+dividirRestandoWhile(22, 5);</code></pre><button class="run-button" onclick="executeCode('code-while-15')"><i class="fas fa-play"></i> Ejecutar</button></div>
+                    </div></div></div>
+
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <p>Un recurso didáctico para aprender a pensar con lógica.</p>
+    </footer>
+
+    <!-- Estructura del Popup Modal -->
+    <div id="modal-container" class="modal-container">
+        <div class="modal-content">
+            <button id="modal-close-btn" class="modal-close-btn"><i class="fas fa-times"></i></button>
+            <h3><i class="fas fa-terminal"></i> Resultado de la Ejecución</h3>
+            <div id="modal-console-output" class="modal-console-output"></div>
+        </div>
+    </div>
+    
+    <script src="code.js"></script>
+</body>
+</html>
